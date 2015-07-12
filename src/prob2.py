@@ -21,7 +21,6 @@ def fib():
         curr = curr + prev
         prev = temp
 
-
 if __name__ == "__main__":
     print sum([x for x in itertools.takewhile(
                              lambda x : x < 4000001, fib()) if x % 2 == 0])
