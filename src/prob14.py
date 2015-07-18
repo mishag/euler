@@ -42,14 +42,14 @@ def sequence_length(n):
 if __name__ == "__main__":
     N = int(sys.argv[1])
 
-    max = 0
+    max_len   = 0
     max_index = -1
     
     for i in range(N):
         len = sequence_length(i)
-        if len > max:
-            max = len
+        if len > max_len:
+            max_len   = len
             max_index = i
 
-    print "%d ==> %d" %(max_index, max)
+    print "%d ==> %d" %(max_index, max_len)
         
