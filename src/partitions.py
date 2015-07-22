@@ -21,6 +21,23 @@ def partitions(n, max_num_used):
     results[(n, max_num_used)] = res
     return res
 
+def partitions_from_set(n, nums):
+    if (n, nums) in results:
+        return results[(n, nums)]
+
+    if n == 0:
+        return 1
+
+    if n < 0:
+        return 0
+
+    if len(nums) <= 0:
+        return 0
+
+    res = partitions_from_set(n, nums[:-1]) + partitions_from_set(n - nums[-1], nums)
+    results[(n, nums)] = res
+    return res
+
 if __name__ == "__main__":
     sys.setrecursionlimit(10000)
     
