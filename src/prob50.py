@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# 997651 ==> 543
+
 import time
 import sys
 import primes
