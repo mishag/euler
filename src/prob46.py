@@ -24,10 +24,7 @@ if __name__ == "__main__":
         if p > N:
             break
 
-    sieve = sorted(sieve)
     max_in_sieve = max(sieve)
-
-    # print sieve
 
     for odd in range(3, max_in_sieve, 2):
         if odd not in sieve:
