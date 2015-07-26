@@ -51,8 +51,35 @@ def find_max_prod_segment(alist, segment_size):
     return max_product
 
 def generate_diags(matrix):
-    pass
+    res = []
+    
+    for b in range(0, GRID_DIMENSION):
+        vect = []
+        for i in range(0, b+1):
+            vect.append(matrix[i][b - i])
+        res.append(vect)
 
+    for b in range(GRID_DIMENSION, 2*GRID_DIMENSION-1):
+        vect = []
+        for i in range(GRID_DIMENSION - 1, b - GRID_DIMENSION, -1):
+            vect.append(matrix[i][b - i])
+        res.append(vect)
+
+    for b in range(0, GRID_DIMENSION):
+        vect = []
+        for i in range(b, GRID_DIMENSION):
+            vect.append(matrix[i][i - b])
+        res.append(vect)
+
+    for b in range(-GRID_DIMENSION + 1, 0):
+        vect = []
+        for i in range(0, GRID_DIMENSION + b):
+            vect.append(matrix[i][i - b])
+        res.append(vect)
+
+
+    return res
+                        
 if __name__ == "__main__":
     numbers = [int(x) for x in GRID.split(' ')]
     matrix = [list(numbers[20*i : 20*i + 20]) for i in range(20)]
@@ -75,7 +102,13 @@ if __name__ == "__main__":
         max_col_prods.append(max_col_prod)
 
     diags = generate_diags(matrix)
-            
-    
+    max_diag_prods = []
+    for vect in diags:    
+        lists = isplit(vect, [0])
+        max_diag_prod = max ([find_max_prod_segment(alist, SEGMENT_SIZE) for alist in lists])
+        max_diag_prods.append(max_diag_prod)
+
+
     print "row_max = %s" %max(max_row_prods)
     print "col_max = %s" %max(max_col_prods)
+    print "diag_max = %s" %max(max_diag_prods)
