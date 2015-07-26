@@ -33,9 +33,7 @@ def is_integral_area2(x):
 
     return ((x - 1) * root) % 4 == 0
 
-    
-# 312530318954683775
-# 156265304204412982
+
 if __name__ == "__main__":
     MAX_PERIMETER = int(sys.argv[1])
 
@@ -62,8 +60,3 @@ if __name__ == "__main__":
                 perimeter_sum += 3*x + 1
             
     print perimeter_sum
-
-        
-        
-
-    
